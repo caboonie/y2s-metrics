@@ -1,6 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
-from flask_login import UserMixin
 
 Base = declarative_base()
 
