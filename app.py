@@ -12,14 +12,12 @@ app.config['SECRET_KEY'] = 'you-will-never-guess'
 def home():
     if 'name' in login_session and login_session['name'] != None:
         return logged_in()
-    print(request.remote_addr)
-    print(type(request.remote_addr))
     if int(request.remote_addr[-1])%2==0:
         version = "A"
     else:
         version = "B"
     create_metric("visit home",version,datetime.datetime.now(),"")
-    return render_template('home'+version+'.html')
+    return render_template('home'+version+'.html',ip=request.remote_addr)
     
 
 @app.route('/login', methods=['POST'])
